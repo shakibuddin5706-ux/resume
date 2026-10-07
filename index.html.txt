@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD. SHAKIB UDDIN | EEE Student & Graphic Designer Portfolio</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#060a17',
+                            800: '#0a1128',
+                            700: '#121a36',
+                            600: '#1c284f'
+                        },
+                        electric: {
+                            500: '#4facfe',
+                            400: '#00f2fe',
+                            glow: 'rgba(0, 242, 254, 0.25)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #060a17;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        /* Tech Circuit Background Pattern */
+        .circuit-bg {
+            background-color: #060a17;
+            background-image: 
+                radial-gradient(rgba(79, 172, 254, 0.08) 1px, transparent 1px),
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 32px 32px, 64px 64px, 64px 64px;
+        }
+
+        /* Subtle Glow Effects */
+        .glow-cyan {
+            box-shadow: 0 0 25px -5px rgba(0, 242, 254, 0.3);
+        }
+        .glow-border {
+            border: 1px solid rgba(0, 242, 254, 0.25);
+        }
+        .glow-border:hover {
+            border-color: rgba(0, 242, 254, 0.6);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.25);
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(10, 17, 40, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #060a17;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1c284f;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f2fe;
+        }
+
+        /* Circuit line pulses */
+        @keyframes pulse-line {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.8; }
+        }
+        .circuit-pulse {
+            animation: pulse-line 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="circuit-bg min-h-screen text-slate-200 antialiased selection:bg-cyan-500 selection:text-slate-900">
+
+    <!-- Sticky Navigation -->
+    <header class="sticky top-0 z-40 w-full glass-card border-b border-slate-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                
+                <!-- Brand Logo -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center font-mono font-bold text-slate-900 text-xl shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+                        SU
+                    </div>
+                    <div>
+                        <span class="block text-lg font-bold tracking-tight text-white group-hover:text-cyan-400 transition-colors" id="navBrandName">MD. SHAKIB UDDIN</span>
+                        <span class="block text-xs font-mono text-cyan-400/80 tracking-wider">EEE & DESIGN</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Navigation -->
+                <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                    <a href="#home" class="text-slate-300 hover:text-cyan-400 transition-colors">Home</a>
+                    <a href="#about" class="text-slate-300 hover:text-cyan-400 transition-colors">About</a>
+                    <a href="#education" class="text-slate-300 hover:text-cyan-400 transition-colors">Education</a>
+                    <a href="#skills" class="text-slate-300 hover:text-cyan-400 transition-colors">Skills</a>
+                    <a href="#services" class="text-slate-300 hover:text-cyan-400 transition-colors">Services</a>
+                    <a href="#projects" class="text-slate-300 hover:text-cyan-400 transition-colors">Projects</a>
+                    <a href="#experience" class="text-slate-300 hover:text-cyan-400 transition-colors">Experience</a>
+                    <a href="#contact" class="text-slate-300 hover:text-cyan-400 transition-colors">Contact</a>
+                    
+                    <!-- Admin Login Trigger Button -->
+                    <button onclick="openAuthModal()" class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/20 transition-all text-xs font-mono">
+                        <i class="fa-solid fa-lock text-xs"></i> <span id="adminNavBtnText">Admin Panel</span>
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center gap-2 md:hidden">
+                    <button onclick="openAuthModal()" class="p-2 text-cyan-400 hover:text-cyan-300" title="Admin Login">
+                        <i class="fa-solid fa-lock text-lg"></i>
+                    </button>
+                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="p-2 text-slate-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden border-b border-slate-800 bg-navy-900/95 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-cyan-400 py-1">Home</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-cyan-400 py-1">About</a>
+            <a href="#education" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-cyan-400 py-1">Education</a>
+            <a href="#skills" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-cyan-400 py-1">Skills</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-cyan-400 py-1">Services</a>
+            <a href="#projects" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-cyan-400 py-1">Projects</a>
+            <a href="#experience" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-cyan-400 py-1">Experience</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-cyan-400 py-1">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-12 pb-20 md:py-28 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-950/40 text-cyan-400 text-xs font-mono tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                        <span id="heroBadge">EEE STUDENT & GRAPHIC DESIGNER</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight" id="heroTitle">
+                        MD. SHAKIB UDDIN
+                    </h1>
+
+                    <p class="text-lg sm:text-xl font-medium text-cyan-300/90 font-mono" id="heroSubheadline">
+                        Electrical & Electronic Engineering Student | Graphic Designer | Technology Enthusiast
+                    </p>
+
+                    <p class="text-base text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0" id="heroBio">
+                        I am an Electrical and Electronic Engineering student at Jamalpur Science and Technology University with a passion for engineering, technology, programming, and creative design. I enjoy combining technical knowledge with creativity to solve problems and build meaningful projects.
+                    </p>
+
+                    <!-- Hero Call to Action Buttons -->
+                    <div class="pt-4 flex flex-wrap gap-4 justify-center lg:justify-start">
+                        <a href="#projects" class="px-6 py-3.5 rounded-xl font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 hover:-translate-y-0.5 transition-all">
+                            View My Work
+                        </a>
+                        <button onclick="downloadCV()" class="px-6 py-3.5 rounded-xl font-semibold glass-card text-white hover:bg-slate-800/80 border border-slate-700 hover:border-cyan-500/50 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-download text-cyan-400"></i> Download CV
+                        </button>
+                        <a href="#contact" class="px-6 py-3.5 rounded-xl font-semibold glass-card text-cyan-400 hover:text-white hover:bg-cyan-950/40 border border-cyan-500/30 transition-all">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Right: Profile Frame with Circuit Trace Decoration -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-88 md:h-88">
+                        
+                        <!-- Circuit Overlay Vector Elements -->
+                        <svg class="absolute -inset-6 w-[calc(100%+48px)] h-[calc(100%+48px)] text-cyan-500/30 circuit-pulse pointer-events-none" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="100" cy="100" r="95" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" />
+                            <circle cx="100" cy="100" r="82" stroke="currentColor" stroke-width="1.5" />
+                            <path d="M100 5 L100 18 M100 182 L100 195 M5 100 L18 100 M182 100 L195 100" stroke="currentColor" stroke-width="2" />
+                            <circle cx="100" cy="18" r="3" fill="currentColor" />
+                            <circle cx="182" cy="100" r="3" fill="currentColor" />
+                        </svg>
+
+                        <!-- Glowing Profile Wrapper -->
+                        <div class="relative w-full h-full rounded-2xl overflow-hidden p-1.5 bg-gradient-to-tr from-cyan-500 via-blue-600 to-indigo-600 shadow-2xl shadow-cyan-500/20">
+                            <div class="w-full h-full rounded-xl overflow-hidden bg-navy-900 relative">
+                                <img id="heroProfileImage" 
+                                     src="https://placehold.co/400x400/0a1128/00f2fe?text=MD.+Shakib+Uddin" 
+                                     alt="MD. Shakib Uddin" 
+                                     class="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                                     onerror="this.src='https://placehold.co/400x400/0a1128/00f2fe?text=MD.+Shakib+Uddin'">
+                                
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-transparent opacity-60"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 relative bg-navy-800/40 border-y border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono font-bold text-cyan-400 tracking-wider uppercase">Engineering & Creativity</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">About Me</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-6 space-y-4 text-slate-300 leading-relaxed">
+                    <h3 class="text-2xl font-bold text-white">Electrical & Electronic Engineering Student</h3>
+                    <p>
+                        I am currently pursuing my Bachelor of Science in Electrical and Electronic Engineering (EEE) at <strong class="text-cyan-300">Jamalpur Science and Technology University (JSTU)</strong>. My academic journey combines core electrical principles with contemporary engineering tools and creative applications.
+                    </p>
+                    <p>
+                        With a deep passion for hardware design, numerical simulation, and programming, I bridges technical precision with graphic design visual communication. Whether analyzing complex electrical networks, simulating systems in MATLAB, or designing graphic media for organization branches, I bring precision and innovation.
+                    </p>
+
+                    <!-- Core Competency Tags -->
+                    <div class="pt-2 flex flex-wrap gap-2 font-mono text-xs">
+                        <span class="px-3 py-1 rounded-md glass-card border-cyan-500/30 text-cyan-300">Circuit Analysis</span>
+                        <span class="px-3 py-1 rounded-md glass-card border-cyan-500/30 text-cyan-300">MATLAB & AutoCAD</span>
+                        <span class="px-3 py-1 rounded-md glass-card border-cyan-500/30 text-cyan-300">C++ & Python</span>
+                        <span class="px-3 py-1 rounded-md glass-card border-cyan-500/30 text-cyan-300">Graphic & Branding Design</span>
+                        <span class="px-3 py-1 rounded-md glass-card border-cyan-500/30 text-cyan-300">IEEE Leadership</span>
+                    </div>
+                </div>
+
+                <!-- Statistics Area -->
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                    <div class="glass-card p-6 rounded-2xl border border-slate-800 text-center hover:border-cyan-500/40 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mx-auto mb-3 text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h4 class="text-2xl font-extrabold text-white">EEE Student</h4>
+                        <p class="text-xs text-slate-400 mt-1 font-mono">B.Sc. candidate at JSTU</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl border border-slate-800 text-center hover:border-cyan-500/40 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mx-auto mb-3 text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h4 class="text-2xl font-extrabold text-white">Engineering + Design</h4>
+                        <p class="text-xs text-slate-400 mt-1 font-mono">Hybrid Technical & Creative</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl border border-slate-800 text-center hover:border-cyan-500/40 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mx-auto mb-3 text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-users-gear"></i>
+                        </div>
+                        <h4 class="text-2xl font-extrabold text-white">IEEE Member</h4>
+                        <p class="text-xs text-slate-400 mt-1 font-mono">Active Student Branch Member</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl border border-slate-800 text-center hover:border-cyan-500/40 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mx-auto mb-3 text-xl group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <h4 class="text-2xl font-extrabold text-white">Creative & Technical</h4>
+                        <p class="text-xs text-slate-400 mt-1 font-mono">Problem Solver</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono font-bold text-cyan-400 tracking-wider uppercase">Academic Background</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Education</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <!-- Dynamic Education Container -->
+            <div id="educationList" class="max-w-4xl mx-auto space-y-6">
+                <!-- Loaded via JavaScript renderEducation() -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Dashboard Section -->
+    <section id="skills" class="py-20 relative bg-navy-800/40 border-y border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono font-bold text-cyan-400 tracking-wider uppercase">Technical & Design Tools</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Skills Dashboard</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="skillsDashboard">
+                <!-- Engineering & Technical -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/30 transition-all">
+                    <div class="flex items-center gap-3 mb-4 text-cyan-400">
+                        <i class="fa-solid fa-microchip text-2xl"></i>
+                        <h3 class="text-lg font-bold text-white">Engineering</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-xs text-cyan-400"></i> Circuit Analysis</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-xs text-cyan-400"></i> Electronics</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-xs text-cyan-400"></i> MATLAB</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-xs text-cyan-400"></i> AutoCAD</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-xs text-cyan-400"></i> Electrical Fundamentals</li>
+                    </ul>
+                </div>
+
+                <!-- Programming -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/30 transition-all">
+                    <div class="flex items-center gap-3 mb-4 text-blue-400">
+                        <i class="fa-solid fa-code text-2xl"></i>
+                        <h3 class="text-lg font-bold text-white">Programming</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-xs text-blue-400"></i> C++</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-xs text-blue-400"></i> Python</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-xs text-blue-400"></i> Object-Oriented Concepts</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-xs text-blue-400"></i> Logic & Problem Solving</li>
+                    </ul>
+                </div>
+
+                <!-- Graphic & Creative Design -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/30 transition-all">
+                    <div class="flex items-center gap-3 mb-4 text-indigo-400">
+                        <i class="fa-solid fa-palette text-2xl"></i>
+                        <h3 class="text-lg font-bold text-white">Graphic Design</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-xs text-indigo-400"></i> Graphic Design</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-xs text-indigo-400"></i> Canva Pro</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-xs text-indigo-400"></i> Adobe Photoshop</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-xs text-indigo-400"></i> Visual Branding & Identity</li>
+                    </ul>
+                </div>
+
+                <!-- Productivity & Professional Skills -->
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/30 transition-all">
+                    <div class="flex items-center gap-3 mb-4 text-emerald-400">
+                        <i class="fa-solid fa-user-check text-2xl"></i>
+                        <h3 class="text-lg font-bold text-white">Professional</h3>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-xs text-emerald-400"></i> MS Office Suite</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-xs text-emerald-400"></i> Visual Communication</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-xs text-emerald-400"></i> Team Collaboration</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-xs text-emerald-400"></i> Technical Presentations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono font-bold text-cyan-400 tracking-wider uppercase">What I Provide</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Services Offered</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <!-- Dynamic Services Cards Grid -->
+            <div id="servicesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Loaded via JavaScript renderServices() -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 relative bg-navy-800/40 border-y border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono font-bold text-cyan-400 tracking-wider uppercase">Practical Engineering & Design</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Projects Portfolio</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Loaded via JavaScript renderProjects() -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Leadership Section -->
+    <section id="experience" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono font-bold text-cyan-400 tracking-wider uppercase">Activities & Leadership</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Experience</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-8 relative before:absolute before:inset-0 before:left-8 before:w-0.5 before:bg-gradient-to-b before:from-cyan-500 before:via-blue-600 before:to-transparent">
+                
+                <!-- IEEE JSTU Student Branch Member -->
+                <div class="relative pl-16 group">
+                    <div class="absolute left-6 top-1 -translate-x-1/2 w-5 h-5 rounded-full bg-cyan-500 border-4 border-navy-900 group-hover:scale-125 transition-transform"></div>
+                    <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/40 transition-all">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                            <h3 class="text-xl font-bold text-white">IEEE JSTU Student Branch</h3>
+                            <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-400 text-xs font-mono">Member</span>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Active involvement in an engineering-focused student organization, contributing to teamwork, technical workshop coordination, professional networking, and academic events.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- IEEE EMBS Graphics Designer -->
+                <div class="relative pl-16 group">
+                    <div class="absolute left-6 top-1 -translate-x-1/2 w-5 h-5 rounded-full bg-blue-500 border-4 border-navy-900 group-hover:scale-125 transition-transform"></div>
+                    <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/40 transition-all">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                            <h3 class="text-xl font-bold text-white">IEEE EMBS JSTU Student Branch</h3>
+                            <span class="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 text-xs font-mono">Graphics Designer</span>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Responsible for creating official graphic design materials, promotional posters, event visuals, social media banners, and digital graphics to facilitate visual communication for IEEE EMBS events.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative bg-navy-800/40 border-t border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono font-bold text-cyan-400 tracking-wider uppercase">Get In Touch</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Let's Connect & Build Something Great</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-cyan-500 to-blue-600 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                
+                <!-- Contact Info Side -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-6">
+                        <h3 class="text-xl font-bold text-white">Contact Information</h3>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs font-mono text-slate-400">Email</span>
+                                <a id="contactEmailDisplay" href="mailto:shakib.eee.jstu@gmail.com" class="text-white hover:text-cyan-400 transition-colors font-medium">shakib.eee.jstu@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs font-mono text-slate-400">Phone</span>
+                                <a id="contactPhoneDisplay" href="tel:+8801700000000" class="text-white hover:text-cyan-400 transition-colors font-medium">+880 1700-000000</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <span class="block text-xs font-mono text-slate-400">Institution</span>
+                                <span class="text-white font-medium">Jamalpur Science and Technology University (JSTU), Bangladesh</span>
+                            </div>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div class="pt-4 border-t border-slate-800 flex gap-4">
+                            <a id="contactLinkedIn" href="https://linkedin.com" target="_blank" class="w-10 h-10 rounded-lg bg-slate-800 text-slate-300 hover:bg-cyan-500 hover:text-slate-900 transition-all flex items-center justify-center text-lg">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a id="contactGitHub" href="https://github.com" target="_blank" class="w-10 h-10 rounded-lg bg-slate-800 text-slate-300 hover:bg-cyan-500 hover:text-slate-900 transition-all flex items-center justify-center text-lg">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Side -->
+                <div class="lg:col-span-7">
+                    <form onsubmit="handleContactSubmit(event)" class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-mono text-slate-300 mb-1">Your Name</label>
+                                <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl bg-navy-900/80 border border-slate-700 text-white focus:outline-none focus:border-cyan-400 transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono text-slate-300 mb-1">Your Email</label>
+                                <input type="email" required placeholder="john@example.com" class="w-full px-4 py-3 rounded-xl bg-navy-900/80 border border-slate-700 text-white focus:outline-none focus:border-cyan-400 transition-all">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-slate-300 mb-1">Subject</label>
+                            <input type="text" required placeholder="Project Collaboration / Inquiry" class="w-full px-4 py-3 rounded-xl bg-navy-900/80 border border-slate-700 text-white focus:outline-none focus:border-cyan-400 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-slate-300 mb-1">Message</label>
+                            <textarea rows="4" required placeholder="Write your message here..." class="w-full px-4 py-3 rounded-xl bg-navy-900/80 border border-slate-700 text-white focus:outline-none focus:border-cyan-400 transition-all"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold hover:shadow-lg hover:shadow-cyan-500/25 transition-all">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-slate-800 bg-navy-900 text-center text-sm text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 space-y-4">
+            <h3 class="text-lg font-bold text-white tracking-wider" id="footerName">MD. SHAKIB UDDIN</h3>
+            <p class="text-xs font-mono text-cyan-400" id="footerSub">Electrical & Electronic Engineering Student | Graphic Designer</p>
+            <div class="flex justify-center space-x-6 text-slate-400 text-xs">
+                <a href="#home" class="hover:text-cyan-400">Home</a>
+                <a href="#about" class="hover:text-cyan-400">About</a>
+                <a href="#skills" class="hover:text-cyan-400">Skills</a>
+                <a href="#projects" class="hover:text-cyan-400">Projects</a>
+                <a href="#contact" class="hover:text-cyan-400">Contact</a>
+            </div>
+            <p class="text-xs text-slate-500 pt-2">© 2026 MD. Shakib Uddin. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    
+    <!-- AUTH PASSWORD MODAL -->
+    <div id="authModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-navy-900/80 backdrop-blur-md">
+        <div class="glass-card max-w-md w-full p-6 sm:p-8 rounded-2xl border border-cyan-500/30 space-y-6 shadow-2xl">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-4">
+                <div class="flex items-center gap-2 text-cyan-400 font-mono font-bold">
+                    <i class="fa-solid fa-user-shield"></i> Local Admin Login
+                </div>
+                <button onclick="closeAuthModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            
+            <p class="text-xs text-slate-300 leading-relaxed">
+                Enter your security admin password to access the dynamic control panel.
+            </p>
+
+            <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-mono text-slate-400 mb-1">Passcode</label>
+                    <input type="password" id="adminPasscode" required placeholder="Enter passcode..." class="w-full px-4 py-3 rounded-xl bg-navy-900 border border-slate-700 text-white focus:outline-none focus:border-cyan-400 font-mono">
+                </div>
+                <div id="authError" class="text-xs text-red-400 hidden font-mono">Incorrect Passcode. Try again.</div>
+                <button type="submit" class="w-full py-3 rounded-xl bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all">
+                    Unlock Admin Dashboard
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- PROJECT DETAIL VIEW MODAL -->
+    <div id="projectModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-navy-900/85 backdrop-blur-md overflow-y-auto">
+        <div class="glass-card max-w-2xl w-full p-6 sm:p-8 rounded-2xl border border-cyan-500/30 space-y-6 shadow-2xl my-8">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-4">
+                <h3 class="text-xl font-bold text-white" id="modalProjTitle">Project Details</h3>
+                <button onclick="closeProjectModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            
+            <img id="modalProjImage" src="" alt="Project Preview" class="w-full h-56 object-cover rounded-xl border border-slate-700">
+
+            <div class="space-y-3">
+                <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-mono" id="modalProjCategory">Category</span>
+                <p class="text-slate-300 text-sm leading-relaxed" id="modalProjDesc">Description...</p>
+                
+                <div>
+                    <span class="block text-xs font-mono text-slate-400 mb-2">Technologies / Components Used</span>
+                    <div id="modalProjTags" class="flex flex-wrap gap-2 font-mono text-xs"></div>
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800 flex justify-end">
+                <button onclick="closeProjectModal()" class="px-5 py-2.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOCAL ADMIN PANEL DASHBOARD MODAL -->
+    <div id="adminPanelModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-2 sm:p-6 bg-navy-900/90 backdrop-blur-md overflow-y-auto">
+        <div class="glass-card max-w-5xl w-full p-6 sm:p-8 rounded-2xl border border-cyan-500/40 space-y-6 shadow-2xl my-auto max-h-[92vh] overflow-y-auto">
+            
+            <div class="flex flex-wrap items-center justify-between border-b border-slate-800 pb-4 gap-2">
+                <div class="flex items-center gap-3">
+                    <span class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></span>
+                    <h2 class="text-xl font-bold text-white font-mono">Live Portfolio Data Manager</h2>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button onclick="adminLogout()" class="text-xs font-mono px-3 py-1.5 rounded-lg bg-red-500/20 text-red-300 hover:bg-red-500/30">Logout Admin</button>
+                    <button onclick="closeAdminPanel()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-xl"></i></button>
+                </div>
+            </div>
+
+            <!-- Admin Navigation Tabs -->
+            <div class="flex flex-wrap gap-2 border-b border-slate-800 pb-2">
+                <button onclick="switchAdminTab('profile')" id="tabBtnProfile" class="px-4 py-2 rounded-lg font-mono text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">Profile & Info</button>
+                <button onclick="switchAdminTab('education')" id="tabBtnEducation" class="px-4 py-2 rounded-lg font-mono text-xs font-semibold text-slate-400 hover:text-white">Education</button>
+                <button onclick="switchAdminTab('projects')" id="tabBtnProjects" class="px-4 py-2 rounded-lg font-mono text-xs font-semibold text-slate-400 hover:text-white">Projects</button>
+                <button onclick="switchAdminTab('services')" id="tabBtnServices" class="px-4 py-2 rounded-lg font-mono text-xs font-semibold text-slate-400 hover:text-white">Services</button>
+            </div>
+
+            <!-- TAB 1: PROFILE EDITOR -->
+            <div id="tabContentProfile" class="space-y-4">
+                <form onsubmit="saveProfileData(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-mono text-slate-400 mb-1">Full Name</label>
+                            <input type="text" id="editName" class="w-full px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-slate-400 mb-1">Subheadline</label>
+                            <input type="text" id="editSubheadline" class="w-full px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-mono text-slate-400 mb-1">Profile Image URL or Base64</label>
+                        <input type="text" id="editProfilePic" placeholder="https://..." class="w-full px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-mono text-slate-400 mb-1">Short Introduction Bio</label>
+                        <textarea id="editBio" rows="3" class="w-full px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-sm"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-mono text-slate-400 mb-1">Contact Email</label>
+                            <input type="email" id="editEmail" class="w-full px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-slate-400 mb-1">Contact Phone</label>
+                            <input type="text" id="editPhone" class="w-full px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-sm">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-mono text-slate-400 mb-1">LinkedIn URL</label>
+                            <input type="text" id="editLinkedIn" class="w-full px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-slate-400 mb-1">GitHub URL</label>
+                            <input type="text" id="editGitHub" class="w-full px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-sm">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 transition-all text-sm">
+                        Save Profile Changes
+                    </button>
+                </form>
+            </div>
+
+            <!-- TAB 2: EDUCATION MANAGER -->
+            <div id="tabContentEducation" class="hidden space-y-6">
+                <form onsubmit="addEducationItem(event)" class="glass-card p-4 rounded-xl border border-slate-700 space-y-3">
+                    <h4 class="text-sm font-bold text-cyan-400 font-mono">Add New Education Entry</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <input type="text" id="newEduDegree" required placeholder="Degree (e.g., B.Sc. in EEE)" class="px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-xs">
+                        <input type="text" id="newEduInst" required placeholder="Institution (e.g., JSTU)" class="px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-xs">
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <input type="text" id="newEduStatus" required placeholder="Status (e.g., Currently pursuing)" class="px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-xs">
+                        <input type="text" id="newEduDesc" placeholder="Brief description..." class="px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-xs">
+                    </div>
+                    <button type="submit" class="px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold text-xs">Add Education</button>
+                </form>
+
+                <div id="adminEduList" class="space-y-3"></div>
+            </div>
+
+            <!-- TAB 3: PROJECTS MANAGER -->
+            <div id="tabContentProjects" class="hidden space-y-6">
+                <form onsubmit="addProjectItem(event)" class="glass-card p-4 rounded-xl border border-slate-700 space-y-3">
+                    <h4 class="text-sm font-bold text-cyan-400 font-mono">Add New Project</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <input type="text" id="newProjTitle" required placeholder="Project Title" class="px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-xs">
+                        <input type="text" id="newProjCategory" required placeholder="Category (e.g., Electrical Project)" class="px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-xs">
+                    </div>
+                    <input type="text" id="newProjImg" placeholder="Image URL (e.g., https://...)" class="w-full px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-xs">
+                    <textarea id="newProjDesc" required placeholder="Project description..." rows="2" class="w-full px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-xs"></textarea>
+                    <input type="text" id="newProjTags" placeholder="Tags (comma separated: Transformer, Magnetics, EEE Lab)" class="w-full px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-xs">
+                    <button type="submit" class="px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold text-xs">Add Project</button>
+                </form>
+
+                <div id="adminProjList" class="space-y-3"></div>
+            </div>
+
+            <!-- TAB 4: SERVICES MANAGER -->
+            <div id="tabContentServices" class="hidden space-y-6">
+                <form onsubmit="addServiceItem(event)" class="glass-card p-4 rounded-xl border border-slate-700 space-y-3">
+                    <h4 class="text-sm font-bold text-cyan-400 font-mono">Add New Service Card</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <input type="text" id="newServiceTitle" required placeholder="Service Title" class="px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-xs">
+                        <input type="text" id="newServiceIcon" placeholder="FontAwesome Icon Class (e.g., fa-solid fa-palette)" class="px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-xs">
+                    </div>
+                    <textarea id="newServiceDesc" required placeholder="Service description..." rows="2" class="w-full px-3 py-2 rounded-lg bg-navy-900 border border-slate-700 text-white text-xs"></textarea>
+                    <button type="submit" class="px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold text-xs">Add Service</button>
+                </form>
+
+                <div id="adminServiceList" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Default Portfolio Initial State Data
+        const defaultProfile = {
+            name: "MD. SHAKIB UDDIN",
+            subheadline: "Electrical & Electronic Engineering Student | Graphic Designer | Technology Enthusiast",
+            bio: "I am an Electrical and Electronic Engineering student at Jamalpur Science and Technology University with a passion for engineering, technology, programming, and creative design. I enjoy combining technical knowledge with creativity to solve problems and build meaningful projects.",
+            profilePic: "https://placehold.co/400x400/0a1128/00f2fe?text=MD.+Shakib+Uddin",
+            email: "shakib.eee.jstu@gmail.com",
+            phone: "+880 1700-000000",
+            linkedin: "https://linkedin.com",
+            github: "https://github.com"
+        };
+
+        const defaultEducation = [
+            {
+                id: "1",
+                degree: "B.Sc. Engineering in Electrical and Electronic Engineering",
+                institution: "Jamalpur Science and Technology University (JSTU)",
+                status: "Currently pursuing",
+                description: "Focusing on circuit theory, signal processing, power systems, electronics, MATLAB numerical computing, and embedded programming."
+            }
+        ];
+
+        const defaultProjects = [
+            {
+                id: "1",
+                title: "Step-Up Transformer Project",
+                category: "Electrical Engineering",
+                description: "An electrical engineering project focused on the working principle and implementation of a step-up transformer, demonstrating voltage transformation, electromagnetic induction, and fundamental transformer concepts.",
+                image: "https://placehold.co/600x400/0a1128/00f2fe?text=Step-Up+Transformer+Diagram",
+                tags: ["Transformer", "Electromagnetics", "EEE Lab", "High Voltage"]
+            }
+        ];
+
+        const defaultServices = [
+            { id: "1", title: "Graphic Design", icon: "fa-solid fa-pen-nib", desc: "Creative and professional visual designs for different digital and academic purposes." },
+            { id: "2", title: "Logo & Branding Design", icon: "fa-solid fa-bezier-curve", desc: "Modern logos and visual identity concepts for projects and organizations." },
+            { id: "3", title: "Poster & Banner Design", icon: "fa-solid fa-image", desc: "Professional posters, banners, event graphics, and promotional materials." },
+            { id: "4", title: "Social Media Design", icon: "fa-solid fa-share-nodes", desc: "Clean and engaging graphics formatted for social media platforms." },
+            { id: "5", title: "Presentation Design", icon: "fa-solid fa-file-powerpoint", desc: "Professional academic, technical, and presentation slide designs." },
+            { id: "6", title: "MATLAB & Engineering Work", icon: "fa-solid fa-calculator", desc: "MATLAB-based engineering calculations, simulations, matrix operations, and projects." },
+            { id: "7", title: "AutoCAD Design", icon: "fa-solid fa-drafting-compass", desc: "Technical drawings and engineering-related CAD drafting." },
+            { id: "8", title: "Circuit & Electronics Projects", icon: "fa-solid fa-microchip", desc: "Basic circuit analysis, electronics concepts, and engineering project development." }
+        ];
+
+        // State Manager
+        let profile = JSON.parse(localStorage.getItem('shakib_profile')) || defaultProfile;
+        let education = JSON.parse(localStorage.getItem('shakib_education')) || defaultEducation;
+        let projects = JSON.parse(localStorage.getItem('shakib_projects')) || defaultProjects;
+        let services = JSON.parse(localStorage.getItem('shakib_services')) || defaultServices;
+        let isAdminLoggedIn = sessionStorage.getItem('shakib_admin_auth') === 'true';
+
+        // Save State helper
+        function saveState() {
+            localStorage.setItem('shakib_profile', JSON.stringify(profile));
+            localStorage.setItem('shakib_education', JSON.stringify(education));
+            localStorage.setItem('shakib_projects', JSON.stringify(projects));
+            localStorage.setItem('shakib_services', JSON.stringify(services));
+            renderAll();
+        }
+
+        // Render entire UI
+        function renderAll() {
+            // Profile & Hero
+            document.getElementById('navBrandName').innerText = profile.name;
+            document.getElementById('heroTitle').innerText = profile.name;
+            document.getElementById('heroSubheadline').innerText = profile.subheadline;
+            document.getElementById('heroBio').innerText = profile.bio;
+            document.getElementById('heroProfileImage').src = profile.profilePic;
+            
+            document.getElementById('contactEmailDisplay').innerText = profile.email;
+            document.getElementById('contactEmailDisplay').href = `mailto:${profile.email}`;
+            document.getElementById('contactPhoneDisplay').innerText = profile.phone;
+            document.getElementById('contactPhoneDisplay').href = `tel:${profile.phone}`;
+            document.getElementById('contactLinkedIn').href = profile.linkedin;
+            document.getElementById('contactGitHub').href = profile.github;
+            
+            document.getElementById('footerName').innerText = profile.name;
+
+            // Education
+            renderEducation();
+            // Services
+            renderServices();
+            // Projects
+            renderProjects();
+
+            // Admin button UI indicator
+            if (isAdminLoggedIn) {
+                document.getElementById('adminNavBtnText').innerText = "Dashboard (Active)";
+            }
+        }
+
+        // Render Education Timeline
+        function renderEducation() {
+            const container = document.getElementById('educationList');
+            container.innerHTML = education.map(item => `
+                <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800 hover:border-cyan-500/40 transition-all relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-500/5 rounded-full blur-xl pointer-events-none"></div>
+                    <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+                        <div>
+                            <h3 class="text-xl font-extrabold text-white">${item.degree}</h3>
+                            <p class="text-cyan-400 font-medium text-sm mt-0.5">${item.institution}</p>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-300 font-mono text-xs font-semibold border border-cyan-500/20">
+                            ${item.status}
+                        </span>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">${item.description || ''}</p>
+                </div>
+            `).join('');
+        }
+
+        // Render Services
+        function renderServices() {
+            const container = document.getElementById('servicesGrid');
+            container.innerHTML = services.map(srv => `
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/40 hover:-translate-y-1 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4 text-xl group-hover:scale-110 transition-transform">
+                        <i class="${srv.icon || 'fa-solid fa-gear'}"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">${srv.title}</h3>
+                    <p class="text-xs text-slate-300 leading-relaxed">${srv.desc}</p>
+                </div>
+            `).join('');
+        }
+
+        // Render Projects
+        function renderProjects() {
+            const container = document.getElementById('projectsGrid');
+            container.innerHTML = projects.map(proj => `
+                <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden hover:border-cyan-500/40 transition-all flex flex-col">
+                    <div class="h-48 bg-navy-900 overflow-hidden relative">
+                        <img src="${proj.image}" alt="${proj.title}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" onerror="this.src='https://placehold.co/600x400/0a1128/00f2fe?text=EEE+Project'">
+                        <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-navy-900/90 text-cyan-400 text-xs font-mono border border-cyan-500/30">
+                            ${proj.category}
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">${proj.title}</h3>
+                            <p class="text-xs text-slate-300 leading-relaxed line-clamp-3">${proj.description}</p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex flex-wrap gap-1.5 font-mono text-[10px]">
+                                ${(proj.tags || []).map(t => `<span class="px-2 py-0.5 rounded bg-slate-800 text-cyan-300">${t}</span>`).join('')}
+                            </div>
+                            <button onclick="openProjectModal('${proj.id}')" class="w-full py-2.5 rounded-xl border border-cyan-500/30 bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/20 text-xs font-semibold transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-circle-info"></i> View Project
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Mobile Navigation Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Download CV Dummy Function
+        function downloadCV() {
+            alert("Preparing MD. Shakib Uddin's CV for download...");
+        }
+
+        // Contact Form Submission Handler
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            alert("Thank you for reaching out! MD. Shakib Uddin will get back to you shortly.");
+            e.target.reset();
+        }
+
+        // Auth Modal & Admin Panel Control
+        function openAuthModal() {
+            if (isAdminLoggedIn) {
+                openAdminPanel();
+            } else {
+                document.getElementById('authModal').classList.remove('hidden');
+            }
+        }
+
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.add('hidden');
+            document.getElementById('authError').classList.add('hidden');
+        }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const pass = document.getElementById('adminPasscode').value;
+            if (pass === '111392') {
+                isAdminLoggedIn = true;
+                sessionStorage.setItem('shakib_admin_auth', 'true');
+                closeAuthModal();
+                openAdminPanel();
+                renderAll();
+            } else {
+                document.getElementById('authError').classList.remove('hidden');
+            }
+        }
+
+        function adminLogout() {
+            isAdminLoggedIn = false;
+            sessionStorage.removeItem('shakib_admin_auth');
+            closeAdminPanel();
+            document.getElementById('adminNavBtnText').innerText = "Admin Panel";
+            alert("Logged out of Admin Panel.");
+        }
+
+        function openAdminPanel() {
+            // Populate profile tab fields
+            document.getElementById('editName').value = profile.name;
+            document.getElementById('editSubheadline').value = profile.subheadline;
+            document.getElementById('editProfilePic').value = profile.profilePic;
+            document.getElementById('editBio').value = profile.bio;
+            document.getElementById('editEmail').value = profile.email;
+            document.getElementById('editPhone').value = profile.phone;
+            document.getElementById('editLinkedIn').value = profile.linkedin;
+            document.getElementById('editGitHub').value = profile.github;
+
+            renderAdminLists();
+            document.getElementById('adminPanelModal').classList.remove('hidden');
+        }
+
+        function closeAdminPanel() {
+            document.getElementById('adminPanelModal').classList.add('hidden');
+        }
+
+        function switchAdminTab(tab) {
+            ['profile', 'education', 'projects', 'services'].forEach(t => {
+                document.getElementById(`tabContent${t.charAt(0).toUpperCase() + t.slice(1)}`).classList.add('hidden');
+                document.getElementById(`tabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`).className = 'px-4 py-2 rounded-lg font-mono text-xs font-semibold text-slate-400 hover:text-white';
+            });
+
+            document.getElementById(`tabContent${tab.charAt(0).toUpperCase() + tab.slice(1)}`).classList.remove('hidden');
+            document.getElementById(`tabBtn${tab.charAt(0).toUpperCase() + tab.slice(1)}`).className = 'px-4 py-2 rounded-lg font-mono text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30';
+        }
+
+        // Save Profile Data from Admin
+        function saveProfileData(e) {
+            e.preventDefault();
+            profile.name = document.getElementById('editName').value;
+            profile.subheadline = document.getElementById('editSubheadline').value;
+            profile.profilePic = document.getElementById('editProfilePic').value;
+            profile.bio = document.getElementById('editBio').value;
+            profile.email = document.getElementById('editEmail').value;
+            profile.phone = document.getElementById('editPhone').value;
+            profile.linkedin = document.getElementById('editLinkedIn').value;
+            profile.github = document.getElementById('editGitHub').value;
+
+            saveState();
+            alert("Profile details updated successfully!");
+        }
+
+        // Render lists inside Admin Panel
+        function renderAdminLists() {
+            // Education admin list
+            document.getElementById('adminEduList').innerHTML = education.map((edu, idx) => `
+                <div class="glass-card p-3 rounded-lg flex justify-between items-center text-xs">
+                    <div>
+                        <strong class="text-white">${edu.degree}</strong>
+                        <span class="block text-slate-400">${edu.institution} (${edu.status})</span>
+                    </div>
+                    <button onclick="deleteEdu('${edu.id}')" class="px-2 py-1 rounded bg-red-500/20 text-red-300 hover:bg-red-500/30">Delete</button>
+                </div>
+            `).join('');
+
+            // Projects admin list
+            document.getElementById('adminProjList').innerHTML = projects.map(p => `
+                <div class="glass-card p-3 rounded-lg flex justify-between items-center text-xs">
+                    <div>
+                        <strong class="text-white">${p.title}</strong>
+                        <span class="block text-slate-400">${p.category}</span>
+                    </div>
+                    <button onclick="deleteProj('${p.id}')" class="px-2 py-1 rounded bg-red-500/20 text-red-300 hover:bg-red-500/30">Delete</button>
+                </div>
+            `).join('');
+
+            // Services admin list
+            document.getElementById('adminServiceList').innerHTML = services.map(s => `
+                <div class="glass-card p-3 rounded-lg flex justify-between items-center text-xs">
+                    <div>
+                        <strong class="text-white">${s.title}</strong>
+                    </div>
+                    <button onclick="deleteService('${s.id}')" class="px-2 py-1 rounded bg-red-500/20 text-red-300 hover:bg-red-500/30">Delete</button>
+                </div>
+            `).join('');
+        }
+
+        // Dynamic ADD / DELETE Operations
+        function addEducationItem(e) {
+            e.preventDefault();
+            const newItem = {
+                id: Date.now().toString(),
+                degree: document.getElementById('newEduDegree').value,
+                institution: document.getElementById('newEduInst').value,
+                status: document.getElementById('newEduStatus').value,
+                description: document.getElementById('newEduDesc').value
+            };
+            education.push(newItem);
+            saveState();
+            renderAdminLists();
+            e.target.reset();
+        }
+
+        function deleteEdu(id) {
+            education = education.filter(e => e.id !== id);
+            saveState();
+            renderAdminLists();
+        }
+
+        function addProjectItem(e) {
+            e.preventDefault();
+            const tagsInput = document.getElementById('newProjTags').value;
+            const newItem = {
+                id: Date.now().toString(),
+                title: document.getElementById('newProjTitle').value,
+                category: document.getElementById('newProjCategory').value,
+                image: document.getElementById('newProjImg').value || 'https://placehold.co/600x400/0a1128/00f2fe?text=EEE+Project',
+                description: document.getElementById('newProjDesc').value,
+                tags: tagsInput ? tagsInput.split(',').map(t => t.trim()) : ['EEE', 'Project']
+            };
+            projects.push(newItem);
+            saveState();
+            renderAdminLists();
+            e.target.reset();
+        }
+
+        function deleteProj(id) {
+            projects = projects.filter(p => p.id !== id);
+            saveState();
+            renderAdminLists();
+        }
+
+        function addServiceItem(e) {
+            e.preventDefault();
+            const newItem = {
+                id: Date.now().toString(),
+                title: document.getElementById('newServiceTitle').value,
+                icon: document.getElementById('newServiceIcon').value || 'fa-solid fa-gear',
+                desc: document.getElementById('newServiceDesc').value
+            };
+            services.push(newItem);
+            saveState();
+            renderAdminLists();
+            e.target.reset();
+        }
+
+        function deleteService(id) {
+            services = services.filter(s => s.id !== id);
+            saveState();
+            renderAdminLists();
+        }
+
+        // View Project Details Modal
+        function openProjectModal(id) {
+            const p = projects.find(proj => proj.id === id);
+            if (!p) return;
+
+            document.getElementById('modalProjTitle').innerText = p.title;
+            document.getElementById('modalProjCategory').innerText = p.category;
+            document.getElementById('modalProjDesc').innerText = p.description;
+            document.getElementById('modalProjImage').src = p.image;
+
+            const tagsContainer = document.getElementById('modalProjTags');
+            tagsContainer.innerHTML = (p.tags || []).map(t => `<span class="px-2.5 py-1 rounded bg-slate-800 text-cyan-300 border border-slate-700">${t}</span>`).join('');
+
+            document.getElementById('projectModal').classList.remove('hidden');
+        }
+
+        function closeProjectModal() {
+            document.getElementById('projectModal').classList.add('hidden');
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderAll();
+        });
+    </script>
+</body>
+</html>
